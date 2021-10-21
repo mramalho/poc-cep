@@ -1,0 +1,29 @@
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non-contextual-creation: true
+  hibernate:
+    ddl-auto: create-drop
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/poc-zup
+    username: postgres
+    password: Zuppers
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: viacep
+      auto-offset-reset: earliest
+      key-deserislizer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+topic:
+  endereco-client: viacep
+
+server:
+  port: 8081
